@@ -7,6 +7,25 @@
     <title>Weather App</title>
 </head>
 <body>
+    <div class="container my-5 mx-auto">
+        <h1 class="text-muted text-center my-5">Weather App</h1>
+        <form class="change-location my-4 text-center text-muted">
+            <input type="text" name="city" class="form-control p-4" placeholder="Enter location">
+        </form>
+        <div class="card shadow-lg rounded">
+            <img src="https://via.placeholder.com/400x300" class="time card-img-top" class="time card-img-top">
+            <div class="icon bg-light mx-auto text-center"></div>
+            <div class="text-muted text-uppercase text-center details">
+                <h5 class="my-5">City name</h5>
+                <div class="my-5">Weather Condition</div>
+                <div class="display-4 my-4">
+                    <span>temp</span>
+                    <span>&deg;C</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script src="scripts/forcast.js"></script>
     <script src="scripts/app.js"></script>
 </body>
