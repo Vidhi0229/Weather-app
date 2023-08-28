@@ -23,15 +23,15 @@ const getCity = async(city) => {
     return data[0]
 }
 
-getCity("California")
-    .then(data => {
-        return getWeather(data.Key)
-    })
-    .then(data => {
-        console.log(data)
-    })
-    .catch(err => {
-        console.log(err)
-    })
+// getCity("California")
+//     .then(data => {
+//         return getWeather(data.Key)
+//     })
+//     .then(data => {
+//         console.log(data)
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
 
 //getWeather(206683)
