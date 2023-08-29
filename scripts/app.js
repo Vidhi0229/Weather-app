@@ -5,7 +5,6 @@ const icon = document.querySelector('.icon img')
 const time = document.querySelector('.time')
 
 
-let timeSrc = null
 
 const updateUI = (data) => {
     const {cityDets, weather} = data
@@ -22,12 +21,8 @@ const updateUI = (data) => {
     const i = `src/icons/${weather.WeatherIcon}.svg`
     icon.setAttribute('src', i)
 
-    if(weather.IsDayTime){
-        timeSrc = 'src/Day.png'
-    }
-    else{
-        timeSrc = 'src/night.png'
-    }
+
+    timeSrc = weather.IsDayTime ? 'src/Day.png':'src/night.png'
     
     time.setAttribute('src', timeSrc)
 
