@@ -3,14 +3,14 @@ const card = document.querySelector('.card')
 const details = document.querySelector('.details')
 
 const updateUI = (data) => {
-    const cityDetails = data.cityDets
-    const cityWeather = data.weather
+    const {cityDets, weather} = data
+
 
     details.innerHTML = `
-    <h5 class="my-5">${cityDetails.EnglishName}</h5>
-    <div class="my-5">${cityWeather.WeatherText}</div>
+    <h5 class="my-5">${cityDets.EnglishName}</h5>
+    <div class="my-5">${weather.WeatherText}</div>
     <div class="display-4 my-4">
-        <span>${cityWeather.Temperature.Metric.Value}</span>
+        <span>${weather.Temperature.Metric.Value}</span>
         <span>&deg;C</span>
     </div>`;
     if(card.classList.contains("d-none")){
@@ -20,16 +20,13 @@ const updateUI = (data) => {
 
 
 const updateCity = async(city) => {
-    const cityDetails = await getCity(city);
-    const cityWeather = await getWeather(cityDetails.Key)
+    const cityDets = await getCity(city);
+    const weather = await getWeather(cityDets.Key)
 
     return {
-        cityDets: cityDetails,
-        weather: cityWeather
+        cityDets, weather
     };
 }
-
-
 
 cityForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -38,6 +35,10 @@ cityForm.addEventListener('submit', (e) => {
     cityForm.reset();
 
     updateCity(city)
-        .then(data => updateUI(data))
+        .then(data => {
+            updateUI(data)
+            console.log(data)
+        })
         .catch(err => console.log(err))
 })
+
