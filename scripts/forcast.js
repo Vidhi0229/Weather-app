@@ -19,7 +19,7 @@ class Forecast{
     }
 
     async getWeather(id){
-        const query = `${id}?apikey=${key}`
+        const query = `${id}?apikey=${this.key}`
         const response = await fetch(this.WeatherBase + query)
         const data = await response.json()
         return data[0]
